@@ -1,0 +1,8 @@
+Agora todas as nossas telas vão ser integradas com a api
+
+Tela para cadastro do usuário
+Tela de login, ao fazer o login devemos salvar o id do usuário no shared preferences ou no banco de dados, pois vamos precisar desse id para salvar/buscar os personagens
+Tela de cadastro de um personagem agora deve salvar o personagem na api
+Tela de listagem deve listar o personagem buscando os dados da API, nessa tela iremos utilizar o viewpager(tabs) para ter a separação dos personagens que são heróis ou vilões
+Ao realizar um swipe nós devemos remover o personagem da lista e remover ele chamando a API reponsavel por deletar
+Todas as interações com a api devem possuir um loader na app.
