@@ -1,6 +1,7 @@
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import trabalhofinaldelpiv.domain.UserUsecase
 
 class ProfileViewModel : ViewModel() {
 

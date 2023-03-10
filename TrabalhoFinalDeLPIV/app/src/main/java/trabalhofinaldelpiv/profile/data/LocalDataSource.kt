@@ -1,8 +1,9 @@
-package trabalhofinaldelpiv.data
+package trabalhofinaldelpiv.profile.data
 
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import trabalhofinaldelpiv.database.FHDatabase
 
 class LocalDatasource {
     private val database: FHDatabase by lazy {

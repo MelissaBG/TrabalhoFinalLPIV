@@ -1,14 +1,13 @@
 package com.fundatec.trabalhofinaldelpiv.login.presentation
 
-import androidx.constraintlayout.motion.utils.ViewState
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import trabalhofinaldelpiv.login.data.LocalDataSource
-import trabalhofinaldelpiv.login.data.LocalDatasSource
-import trabalhofinaldelpiv.data.LoginDatasSource
+import trabalhofinaldelpiv.login.login.presentation.ViewState
+import trabalhofinaldelpiv.login.registerUser.data.RegisterUserDatasSource
 
 //'LoginViewModel' que é uma subclasse 'ViewModel'. Essa classe gernecia a lógica de negócio e a comunicação entre a camada de vizualização
 // e a camada de dados.
@@ -27,15 +26,9 @@ class RegisterUserViewModel : ViewModel() {
             if (!name.isNullOrEmpty() && !email.isNullOrEmpty() && !password.isNullOrEmpty()) {
                 val registerUser = RegisterUserDatasSource().register(name, email, password)
                 if (registerUser.get() != null) {
-                    state.value = ViewState.ShowLogin
+                    state.value = ViewState.ShowRegisterUser
                 }
             }
         }
     }
-}
-sealed class ViewState {
-    object ShowLogin : ViewState()
-    object ShowLoading: ViewState()
-    object ShowErrorEmptyFields : ViewState()
-    object ShowErrorApiRegisterUser : ViewState()
 }

@@ -1,8 +1,9 @@
-
+package com.fundatec.trabalhofinaldelpiv
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.fundatec.trabalhofinaldelpiv.databinding.ActivityNewCharacterBinding
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 

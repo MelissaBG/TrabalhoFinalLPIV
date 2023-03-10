@@ -1,4 +1,4 @@
-package com.fundatec.trabalhofinaldelpiv.home
+package com.fundatec.trabalhofinaldelpiv
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.fundatec.trabalhofinaldelpiv.databinding.FragmentCharactersBinding
+import com.fundatec.trabalhofinaldelpiv.home.ListItemAdapter
 
 /*Implementa uma classe 'CharactersFragment' que estende a classe 'Fragment'. Ela é usada para exibir uma lista de
 * caracters em um view.*/

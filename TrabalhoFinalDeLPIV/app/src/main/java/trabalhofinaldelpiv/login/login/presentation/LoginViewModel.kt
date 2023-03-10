@@ -1,14 +1,13 @@
 package com.fundatec.trabalhofinaldelpiv.login.presentation
 
-import androidx.constraintlayout.motion.utils.ViewState
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import trabalhofinaldelpiv.login.data.LocalDataSource
-import trabalhofinaldelpiv.login.data.LocalDatasSource
-import trabalhofinaldelpiv.data.LoginDatasSource
+import trabalhofinaldelpiv.login.login.data.LoginDataSource
+import trabalhofinaldelpiv.login.login.presentation.ViewState
 
 //'LoginViewModel' que é uma subclasse 'ViewModel'. Essa classe gernecia a lógica de negócio e a comunicação entre a camada de vizualização
 // e a camada de dados.
@@ -17,26 +16,21 @@ class LoginViewModel : ViewModel() {
 
     private val state = MutableLiveData<ViewState>()
     val viewState: LiveData<ViewState> = state
-    /*Ele contém o método 'validateUserInput que valida as entradas do usuário para o email e senha e tenta fazer login com esse dados.
-    Se o login for bem-sucedido, ele atualiza o estado 'ViewState' para 'ShowHome'.*/
-    /* O método 'validateUserInput' usa a função 'launch' do escopo 'viewModelScope' para executar as operações assincronas em uma rotina
-    * de modo que a chamada do método verifica se o email e a senha não estão vazios ou nulos,  em seguida, usa um objeto 'LoginDataSourse'
-    * para tentar fazer login com essas credenciais. Seo o lgin for bem-sucedido, o estado 'ViewState' é atualizado para 'ShowHome'*/
+
     fun validateUserInput(email: String?, password: String?) {
         viewModelScope.launch {
+            state.value = ViewState.ShowLoading
             if (!email.isNullOrEmpty() && !password.isNullOrEmpty()) {
-                val user = LoginDatasSource().login(email, password)
+                val user = LoginDataSource().login(email, password)
                 if (user.get() != null) {
                     state.value = ViewState.ShowHome
+                } else {
+                    state.value = ViewState.ShowErrorApiLogin
                 }
+            } else {
+                state.value = ViewState.ShowErrorEmptyFileds
             }
         }
     }
 }
-/* A classe ViewSate é uma classe que é usada para definir o estado atual da interface do usuário. Atualmente, a única opção de estado é 'ShowHome'*/
-sealed class ViewState {
-    object ShowHome : ViewState()
-    object ShowLoading: ViewState()
-    object ShowErrorEmptyFields : ViewState()
-    object ShowErrorApiLogin : ViewState()
-}
+

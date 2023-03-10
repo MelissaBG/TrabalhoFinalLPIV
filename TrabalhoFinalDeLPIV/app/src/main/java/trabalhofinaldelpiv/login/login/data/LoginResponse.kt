@@ -1,4 +1,4 @@
-package trabalhofinaldelpiv.data
+package trabalhofinaldelpiv.login.login.data
 
 data class LoginResponse(
     val id: Int,

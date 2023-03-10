@@ -1,8 +1,8 @@
-package trabalhofinaldelpiv.data
+package trabalhofinaldelpiv.database
 
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
+import trabalhofinaldelpiv.login.login.data.LoginResponse
 
 /*Essa classe contém um método chamado 'login' que usa o método HTTP GET para enviar uma solicitação
 * para a rota 'api/login' e espera receber uma resposta assincrona.

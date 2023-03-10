@@ -1,4 +1,4 @@
-package trabalhofinaldelpiv.data
+package trabalhofinaldelpiv.database
 
 data class RegisterResponse(
     val id: Int,

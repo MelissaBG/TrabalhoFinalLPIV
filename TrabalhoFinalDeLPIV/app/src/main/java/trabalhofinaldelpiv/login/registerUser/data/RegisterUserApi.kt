@@ -1,6 +1,5 @@
-package trabalhofinaldelpiv.data
+package trabalhofinaldelpiv.database
 
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -20,7 +19,7 @@ import retrofit2.http.Query
             @Query("name") name: String,
             @Query("email") email: String,
             @Query("password") password: String,
-        ): RegisterUserResponse
+        ): RegisterResponse
 
     }
 

@@ -7,19 +7,18 @@ import android.widget.Toast.LENGTH_LONG
 import androidx.activity.viewModels
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
-import br.com.fundatec.R
+
 import androidx.appcompat.app.AppCompatActivity
+import com.fundatec.trabalhofinaldelpiv.R
+import com.fundatec.trabalhofinaldelpiv.databinding.ActivityLoginBinding
+import com.fundatec.trabalhofinaldelpiv.home.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 import com.fundatec.trabalhofinaldelpiv.login.presentation.LoginViewModel
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
-/*A classe LoginActivity estende a classe AppCpmpatActivity, que é uma das classe de atividades
-* fornecidas pelo Android. Lida com a lógica de negócios da tela de login.*/
+import trabalhofinaldelpiv.login.login.presentation.ViewState
+
 class LoginActivity : AppCompatActivity (){
 
-/*Binding: uma instância da classe "ActivityLoginBinding' que é criada no método 'onCreate() da atividade. Essa classe é gerada automaticamente pelo Android apartir do XML que define a tela
-* de aparencia da tela de login.*/
         private lateinit var binding: ActivityLoginBinding
 /* viewModel: uma instãncia da classe LoginViewModel, que é criada usando o método viewModels() da classe AppCompatActivity. Essa classe contém a lógica de negócios e interage com o banco de dados.*/
         private val viewModel: LoginViewModel by viewModels()
@@ -44,10 +43,9 @@ class LoginActivity : AppCompatActivity (){
 
 
         }
-    private fun configObservers() {
+    private fun configObserver() {
         viewModel.viewState.observe(this) { state ->
             when (state) {
-                is ViewState.ShowHome -> showSnack()
                 is ViewState.ShowHome -> showHome()
                 is ViewState.ShowErrorEmptyFileds -> showSnackBarError(R.string.error_empty_fields)
                 is ViewState.ShowLoading -> showLoading()

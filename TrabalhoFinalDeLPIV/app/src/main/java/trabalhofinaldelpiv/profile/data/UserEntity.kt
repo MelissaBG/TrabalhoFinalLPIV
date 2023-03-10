@@ -1,4 +1,4 @@
-package trabalhofinaldelpiv.data
+package trabalhofinaldelpiv.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

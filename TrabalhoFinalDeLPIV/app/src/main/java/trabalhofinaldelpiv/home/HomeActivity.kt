@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.fundatec.trabalhofinaldelpiv.CharactersFragment
 import com.fundatec.trabalhofinaldelpiv.databinding.ActivityHomeBinding
 
 /*Tela inicial de um aplicativo que tem duas abas, cada uma com um fragmento(CharactersFragment) exibindo

@@ -1,4 +1,4 @@
-package com.fundatec.trabalhofinaldelpiv.login
+package com.fundatec.trabalhofinaldelpiv
 
 import android.view.View
 import androidx.databinding.BindingAdapter

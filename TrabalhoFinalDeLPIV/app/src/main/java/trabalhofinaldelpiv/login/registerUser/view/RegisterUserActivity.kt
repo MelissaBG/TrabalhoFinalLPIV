@@ -3,16 +3,14 @@ package com.fundatec.trabalhofinaldelpiv.login.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast.LENGTH_LONG
 import androidx.activity.viewModels
-import androidx.annotation.IdRes
 import androidx.annotation.StringRes
-import br.com.fundatec.R
 import androidx.appcompat.app.AppCompatActivity
+import com.fundatec.trabalhofinaldelpiv.R
+import com.fundatec.trabalhofinaldelpiv.login.presentation.RegisterUserViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.fundatec.trabalhofinaldelpiv.login.presentation.LoginViewModel
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import trabalhofinaldelpiv.login.registerUser.presentation.ViewState
+
 
 /*A classe RegisterUserActivity estende a classe AppCpmpatActivity, que é uma das classe de atividades
 * fornecidas pelo Android. Lida com a lógica de negócios da tela de login.*/
@@ -35,10 +33,10 @@ class RegisterUserActivity : AppCompatActivity (){
 
 
         }
-    private fun configObservers() {
+    private fun configObserver() {
         viewModel.viewState.observe(this) { state ->
             when (state) {
-                is ViewState.ShowLogin -> showSnack()
+                is ViewState.ShowRegisterUser -> showSnack()
                 is ViewState.ShowErrorEmptyFileds -> showSnackBarError(R.string.error_empty_fields)
                 is ViewState.ShowLoading -> showLoading()
                 is ViewState.ShowErrorApiLogin -> showSnackBarError(R.string.error_login)
@@ -60,9 +58,9 @@ class RegisterUserActivity : AppCompatActivity (){
 
         }
 
-    private fun showHome() {
+    private fun showRegisterUser() {
         hideLoging()
-        val intent = Intent(this@RegisterUserActivity, LoginActivity::class.java)
+        val intent = Intent(this@RegisterUserActivity, RegisterUserActivity::class.java)
         startActivity(intent)
     }
 
