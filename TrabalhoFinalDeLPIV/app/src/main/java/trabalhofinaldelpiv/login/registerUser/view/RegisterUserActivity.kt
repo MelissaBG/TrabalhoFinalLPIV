@@ -50,7 +50,6 @@ class RegisterUserActivity : AppCompatActivity (){
             binding.etRegisterButton.setOnClickListener {
 
                 viewModel.validateUserInput(
-                    name = binding.etNameRegisterUser.text.toString(),
                     email = binding.etEmail.text.toString(),
                     password = binding.etPassword.text.toString(),)
 

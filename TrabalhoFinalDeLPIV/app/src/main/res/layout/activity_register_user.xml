@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        tools:context="trabalhofinaldelpiv.login.registerUser.view.RegisterUserActivity">
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nome de Usuário"
+        android:padding="16dp"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastro de usuário" />
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        android:padding="16dp"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_email"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
-        <EditText
-            android:id="@+id/etNameRegisterUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite seu nome" />
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Registrar"
+        app:layout_constraintTop_toBottomOf="@id/et_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
-        <EditText
-            android:id="@+id/etEmailRegisterUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite seu e-mail" />
-
-        <EditText
-            android:id="@+id/etPasswordRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite sua senha"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/etRegisterButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>

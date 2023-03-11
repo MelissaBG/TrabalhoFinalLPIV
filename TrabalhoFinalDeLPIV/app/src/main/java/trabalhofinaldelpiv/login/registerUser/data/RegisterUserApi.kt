@@ -16,7 +16,6 @@ import retrofit2.http.Query
 
         @GET("api/registeruserapi")
         suspend fun register(
-            @Query("name") name: String,
             @Query("email") email: String,
             @Query("password") password: String,
         ): RegisterResponse

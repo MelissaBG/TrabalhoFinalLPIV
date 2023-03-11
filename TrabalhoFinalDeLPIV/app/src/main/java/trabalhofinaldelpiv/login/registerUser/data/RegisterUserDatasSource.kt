@@ -15,7 +15,7 @@ class RegisterUserDatasSource {
     suspend fun register( name: String, email: String, password: String): Result<RegisterResponse, ErrorModel>{
         return withContext(Dispatchers.IO) {
             try {
-                val registerResponse = service.register(name= name, email = email, password = password)
+                val registerResponse = service.register(email = email, password = password)
                 Result.Success(registerResponse)
             } catch(exeception: Exception){
                 Log.e("RegisterUserDataSource", exeception.message ?: "")
