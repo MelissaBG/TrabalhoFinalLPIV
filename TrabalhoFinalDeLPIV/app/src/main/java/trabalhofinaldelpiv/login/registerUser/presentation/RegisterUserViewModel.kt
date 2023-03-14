@@ -14,20 +14,21 @@ import trabalhofinaldelpiv.login.registerUser.data.RegisterUserDatasSource
 
 class RegisterUserViewModel : ViewModel() {
 
-    private val state = MutableLiveData<ViewState>()
-    val viewState: LiveData<ViewState> = state
+    private val stateRegister = MutableLiveData<ViewState>()
+    val viewState: LiveData<ViewState> = stateRegister
+
     fun validateUserInput(email: String?, password: String?) {
         viewModelScope.launch {
-            state.value = ViewState.ShowLoading
+            stateRegister.value = ViewState.ShowLoading
             if (!email.isNullOrEmpty() && !password.isNullOrEmpty()) {
                 val registerUser = RegisterUserDatasSource().register(email, password)
                 if (registerUser.get() != null) {
-                    state.value = ViewState.ShowHome
+                    stateRegister.value = ViewState.ShowRegisterUser
                 } else {
-                    state.value = ViewState.ShowErrorApiLogin
+                    stateRegister.value = ViewState.ShowErrorApiRegisterUser
                 }
             } else {
-                state.value = ViewState.ShowErrorEmptyFileds
+                stateRegister.value = ViewState.ShowErrorEmptyFields
             }
         }
     }

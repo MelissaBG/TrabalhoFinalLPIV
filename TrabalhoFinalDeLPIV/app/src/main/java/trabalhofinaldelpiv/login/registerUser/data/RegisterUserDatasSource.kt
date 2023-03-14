@@ -12,7 +12,7 @@ class RegisterUserDatasSource {
     private val service = RetrofitNetworkClient.createNetworkClient()
         .create(RegisterUserApi::class.java)
 
-    suspend fun register( name: String, email: String, password: String): Result<RegisterResponse, ErrorModel>{
+   suspend fun register(email: String, password: password): Result<RegisterResponse, ErrorModel> {
         return withContext(Dispatchers.IO) {
             try {
                 val registerResponse = service.register(email = email, password = password)
@@ -22,7 +22,6 @@ class RegisterUserDatasSource {
                 Result.Error(ErrorModel.ErrorRegister)
             }
         }
-
     }
 
 }

@@ -20,6 +20,12 @@ object RetrofitNetworkClient {
                 httpClint(),
                 moshi()
             )
+        fun createNetworkNewCharacter(baseUrl: String = "https://fundatec.herokuapp.com/") =
+            retrofitNewCharacter(
+                baseUrl,
+                httpClint(),
+                moshi()
+            )
         /*O método 'moshi' cria um 'MoshiConverterFactory' que utiliza o construtor de um 'Moshi.Builder'
         * Neste caso estamos adicionando um adaptador para suportar a serialização/deserialização de objetos Kotlin. */
         private fun moshi() = MoshiConverterFactory.create(
@@ -58,5 +64,9 @@ object RetrofitNetworkClient {
             .client(htttpClient)
             .addConverterFactory(moshiConverterFactory)
             .build()
-
+        private fun retrofitNewCharacter(
+            baseUrl: String,
+            htttpClient: OkHttpClient,
+            moshiConverterFactory: MoshiConverterFactory
+        ) = Retrofit.Builder()
     }
